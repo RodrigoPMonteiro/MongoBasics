@@ -1,0 +1,23 @@
+detailDoc = db.movieDetails.findOne({"imdb.id":"tt2510998"})
+
+detailDoc.poster
+
+#Fazer uma atualização por vez
+detailDoc.poster = "http:\\www.google.com.br"
+
+db.movieDetails.replaceOne({
+	"imdb.id" : detailDoc.imdb.id
+	},
+	detailDoc
+);
+
+-------------------------------------------------------------
+
+#Fazer uma atualização por vez
+detailDoc.genres.push("Test")
+
+db.movieDetails.replaceOne({
+	"imdb.id" : detailDoc.imdb.id
+	},
+	detailDoc
+);
